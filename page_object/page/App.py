@@ -6,5 +6,5 @@ from page_object.page.MainPage import MainPage
 class App(BasePage):
     @classmethod
     def main(cls):
-        cls.getClient().restart_app()
+        cls.get_client().restart_app()
         return MainPage()

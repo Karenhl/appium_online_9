@@ -13,11 +13,11 @@ class TestXueqiuAndroid(object):
     @classmethod
     def setup_class(cls):
         print("setup class 在当前类下的所有用例执行之前只执行一次")
-        #cls.install_app()
+        # cls.install_app()
 
     def setup_method(self):
         print("setup method 在每个测试用例执行之前执行一次")
-        #获取启动的appium的driver实例，用于后续每个case的driver
+        # 获取启动的appium的driver实例，用于后续每个case的driver
         self.driver=self.restart_app()
         self.driver.execute_script()
 
@@ -62,13 +62,13 @@ class TestXueqiuAndroid(object):
         print(self.driver.get_window_rect())
 
     def teardown_method(self):
-        #不加也没关系，如果不quit，启动appium会自动quit之前的session
+        # 不加也没关系，如果不quit，启动appium会自动quit之前的session
         self.driver.quit()
 
     @classmethod
     def install_app(cls) -> WebDriver:
         caps = {}
-        #如果有必要，进行第一次安装
+        # 如果有必要，进行第一次安装
         # caps["app"]=''
         caps["platformName"] = "android"
         caps["deviceName"] = "hogwarts"
@@ -90,9 +90,9 @@ class TestXueqiuAndroid(object):
         caps["deviceName"] = "hogwarts"
         caps["appPackage"] = "com.xueqiu.android"
         caps["appActivity"] = ".view.WelcomeActivityAlias"
-        #为了更快的启动，并保留之前的数据，从而可以保存上一个case执行后的状态
-        caps['noReset']=True
-        caps['udid']='emulator-5554'
+        # 为了更快的启动，并保留之前的数据，从而可以保存上一个case执行后的状态
+        caps['noReset'] = True
+        caps['udid'] ='emulator-5554'
 
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         driver.implicitly_wait(10)

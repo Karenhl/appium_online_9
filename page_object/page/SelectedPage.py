@@ -6,14 +6,15 @@ from page_object.page.BasePage import BasePage
 
 
 class SelectedPage(BasePage):
-    def addDefault(self):
+    def add_default(self):
         return self
 
-    def gotoHS(self):
-        self.findByText("沪深").click()
+    def goto_hs(self):
+        self.find_by_text("沪深").click()
         return self
-    def getPriceByName(self, name) -> float:
-        priceLocator=(MobileBy.XPATH, "//*[contains(@resource-id, 'stockName') and @text='%s']" %name +
+
+    def get_price_by_name(self, name) -> float:
+        priceLocator = (MobileBy.XPATH, "//*[contains(@resource-id, 'stockName') and @text='%s']" %name +
              "/../../..//*[contains(@resource-id, 'currentPrice')]")
-        price=self.find(priceLocator).text
+        price = self.find(priceLocator).text
         return float(price)

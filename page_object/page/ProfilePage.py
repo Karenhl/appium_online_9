@@ -3,7 +3,7 @@ from page_object.page.LoginPage import LoginPage
 
 
 class ProfilePage(BasePage):
-    def gotoLogin(self):
-        #self.findByText("点击登录").click()
-        self.loadSteps("../data/ProfilePage.yaml", "gotoLogin")
+    def goto_login(self):
+        # self.find_by_text("点击登录").click()
+        self.load_steps("../data/ProfilePage.yaml", "goto_login")
         return LoginPage()

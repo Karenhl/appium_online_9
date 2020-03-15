@@ -10,22 +10,22 @@ class MainPage(BasePage):
     _profile_button=(By.ID, "user_profile_icon")
     _search_button = (By.ID, "home_search")
 
-    def gotoSelected(self):
-        #调用全局的driver对象使用webdriver api操纵app
+    def goto_selected(self):
+        # 调用全局的driver对象使用webdriver api操纵app
 
-        #self.driver.find_element(By.xpath, "//*[@text='自选']")
-        zixuan="自选"
-        self.findByText(zixuan)
-        #self.driver.find_element_by_xpath("//*[@text='自选']")
-        self.findByText(zixuan).click()
+        # self.driver.find_element(By.xpath, "//*[@text='自选']")
+        zixuan = "自选"
+        self.find_by_text(zixuan)
+        # self.driver.find_element_by_xpath("//*[@text='自选']")
+        self.find_by_text(zixuan).click()
 
         return SelectedPage()
 
-    def gotoSearch(self) -> SearchPage:
+    def goto_search(self) -> SearchPage:
         self.find(self._search_button).click()
         return SearchPage()
 
-    def gotoProfile(self):
-        #self.find(MainPage._profile_button).click()
-        self.loadSteps("../data/MainPage.yaml", "gotoProfile")
+    def goto_profile(self):
+        # self.find(MainPage._profile_button).click()
+        self.load_steps("../data/MainPage.yaml", "goto_profile")
         return ProfilePage()

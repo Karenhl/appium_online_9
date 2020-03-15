@@ -10,7 +10,7 @@ class SearchPage(BasePage):
         self.find(self._edit_locator).send_keys(key)
         return self
 
-    def addToSelected(self, key):
+    def add_to_selected(self, key):
         follow_button = (By.XPATH,
                          "//*[contains(@resource-id, 'stockCode') and contains(@text,'%s')]/../../.." % key +
                          "//*[contains(@resource-id, 'follow_btn')]")
@@ -18,8 +18,7 @@ class SearchPage(BasePage):
         self.find(follow_button).click()
         return self
 
-
-    def removeFromSelected(self, key):
+    def remove_from_selected(self, key):
         followed_button = (By.XPATH,
                          "//*[contains(@resource-id, 'stockCode') and contains(@text,'%s')]/../../.." % key +
                          "//*[contains(@resource-id, 'followed_btn')]")
@@ -27,7 +26,7 @@ class SearchPage(BasePage):
         self.find(followed_button).click()
         return self
 
-    def isInSelected(self, key):
+    def is_in_selected(self, key):
         follow_button=(By.XPATH,
                        "//*[contains(@resource-id, 'stockCode') and contains(@text,'%s')]/../../.." %key +
                        "//*[contains(@resource-id, 'follow')]")
@@ -36,11 +35,12 @@ class SearchPage(BasePage):
         return "followed_btn" in id
 
     def cancel(self):
-        self.findByText("取消").click()
-    def searchByUser(self, key):
+        self.find_by_text("取消").click()
+
+    def search_by_user(self, key):
         # todo: 作业2
         pass
 
-    def isFollowed(self):
+    def is_followed(self):
         # todo: 作业2
         pass
